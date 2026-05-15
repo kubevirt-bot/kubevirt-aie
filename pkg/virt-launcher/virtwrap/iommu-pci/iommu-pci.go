@@ -50,6 +50,17 @@ const (
 	PCIHoleMarginKiB = uint64(1024 * 1024)
 )
 
+var (
+	// ParseConfigHybridFn overrides the architecture-specific parseConfigHybrid
+	// implementation when non-nil. This allows tests to stub out sysfs/ioctl
+	// operations that are only available on real hardware.
+	ParseConfigHybridFn func(string) (atsSupported, atsEnabled, pasidSupported bool, ssidSize, oasBits int, err error)
+
+	// CalculatePCIHole64SizeFn overrides the architecture-specific
+	// CalculatePCIHole64Size implementation when non-nil.
+	CalculatePCIHole64SizeFn func(string) (uint64, error)
+)
+
 // IommuPCI represents the IOMMU configuration for PCI devices
 // on ARM64 systems with SMMUv3 (System Memory Management Unit version 3)
 type IommuPCI struct {
@@ -152,7 +163,11 @@ func NewBDFDevice(id string) *BDF {
 //   - *BDF: The updated BDF object with populated capability fields
 //   - error: Any error encountered reading the configuration space
 func (bdf *BDF) ParseConfigHybrid() (*BDF, error) {
-	atsSupported, atsEnabled, pasidSupported, ssidSize, oasBits, err := parseConfigHybrid(bdf.ID)
+	fn := parseConfigHybrid
+	if ParseConfigHybridFn != nil {
+		fn = ParseConfigHybridFn
+	}
+	atsSupported, atsEnabled, pasidSupported, ssidSize, oasBits, err := fn(bdf.ID)
 	if err != nil {
 		log.Log.Errorf("Failed to process %s: %v", bdf.ID, err)
 		return bdf, err
@@ -185,7 +200,11 @@ func (bdf *BDF) ParseConfigHybrid() (*BDF, error) {
 //   - uint64: Total hole size in bytes
 //   - error: Any error encountered reading device resources
 func (bdf *BDF) CalculatePCIHoleSize() (uint64, error) {
-	holeSize, err := CalculatePCIHole64Size(bdf.ID)
+	fn := CalculatePCIHole64Size
+	if CalculatePCIHole64SizeFn != nil {
+		fn = CalculatePCIHole64SizeFn
+	}
+	holeSize, err := fn(bdf.ID)
 	if err != nil {
 		log.Log.Errorf("Failed calculating pcihole64 size of %s: %v", bdf.ID, err)
 		return 0, err

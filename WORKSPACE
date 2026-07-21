@@ -6623,19 +6623,13 @@ rpm(
 rpm(
     name = "libguestfs-1__1.58.1-2.el10.s390x",
     sha256 = "5546a48cbc10fe6dac94e219d9458be67cfb047a60482e4429987461a4f7ee71",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/AppStream/s390x/os/Packages/libguestfs-1.58.1-2.el10.s390x.rpm",
-        "https://storage.googleapis.com/builddeps/5546a48cbc10fe6dac94e219d9458be67cfb047a60482e4429987461a4f7ee71",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/5546a48cbc10fe6dac94e219d9458be67cfb047a60482e4429987461a4f7ee71"],
 )
 
 rpm(
     name = "libguestfs-1__1.58.1-2.el10.x86_64",
     sha256 = "9e258c41aeb346fd4e37d13a3346f89c9a5d1354586da91567a948e520da78bd",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/AppStream/x86_64/os/Packages/libguestfs-1.58.1-2.el10.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/9e258c41aeb346fd4e37d13a3346f89c9a5d1354586da91567a948e520da78bd",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/9e258c41aeb346fd4e37d13a3346f89c9a5d1354586da91567a948e520da78bd"],
 )
 
 rpm(
@@ -15251,28 +15245,19 @@ rpm(
 rpm(
     name = "vim-data-2__9.1.083-8.el10.aarch64",
     sha256 = "94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/aarch64/os/Packages/vim-data-9.1.083-8.el10.noarch.rpm",
-        "https://storage.googleapis.com/builddeps/94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e"],
 )
 
 rpm(
     name = "vim-data-2__9.1.083-8.el10.s390x",
     sha256 = "94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/s390x/os/Packages/vim-data-9.1.083-8.el10.noarch.rpm",
-        "https://storage.googleapis.com/builddeps/94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e"],
 )
 
 rpm(
     name = "vim-data-2__9.1.083-8.el10.x86_64",
     sha256 = "94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/x86_64/os/Packages/vim-data-9.1.083-8.el10.noarch.rpm",
-        "https://storage.googleapis.com/builddeps/94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/94b8e2937e8b1268914528e978929e9138f3ab3c7f107eb87fd422e417edac0e"],
 )
 
 rpm(
@@ -15302,28 +15287,19 @@ rpm(
 rpm(
     name = "vim-minimal-2__9.1.083-8.el10.aarch64",
     sha256 = "5dfefb6f7ad8a74dce3d949186c786696d9952b1b36d0cfd5b5ef4cbac60e2f2",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/aarch64/os/Packages/vim-minimal-9.1.083-8.el10.aarch64.rpm",
-        "https://storage.googleapis.com/builddeps/5dfefb6f7ad8a74dce3d949186c786696d9952b1b36d0cfd5b5ef4cbac60e2f2",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/5dfefb6f7ad8a74dce3d949186c786696d9952b1b36d0cfd5b5ef4cbac60e2f2"],
 )
 
 rpm(
     name = "vim-minimal-2__9.1.083-8.el10.s390x",
     sha256 = "67d40bfbc864cee9b0e0196a20d08c589ca2a75fb7921af4e5e20189dc02732f",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/s390x/os/Packages/vim-minimal-9.1.083-8.el10.s390x.rpm",
-        "https://storage.googleapis.com/builddeps/67d40bfbc864cee9b0e0196a20d08c589ca2a75fb7921af4e5e20189dc02732f",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/67d40bfbc864cee9b0e0196a20d08c589ca2a75fb7921af4e5e20189dc02732f"],
 )
 
 rpm(
     name = "vim-minimal-2__9.1.083-8.el10.x86_64",
     sha256 = "59c8f2f3685dfe987fffea7608fbadc1a268fb3379f22d7f5d7f6109cdf05094",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/x86_64/os/Packages/vim-minimal-9.1.083-8.el10.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/59c8f2f3685dfe987fffea7608fbadc1a268fb3379f22d7f5d7f6109cdf05094",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/59c8f2f3685dfe987fffea7608fbadc1a268fb3379f22d7f5d7f6109cdf05094"],
 )
 
 rpm(

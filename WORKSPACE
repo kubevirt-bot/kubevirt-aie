@@ -11261,10 +11261,7 @@ rpm(
 rpm(
     name = "pam-0__1.5.1-23.el9.x86_64",
     sha256 = "fba392096cbf59204549bca23d4060cdf8aaaa9ce35ade8194c111f519033e10",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/pam-1.5.1-23.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/fba392096cbf59204549bca23d4060cdf8aaaa9ce35ade8194c111f519033e10",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/fba392096cbf59204549bca23d4060cdf8aaaa9ce35ade8194c111f519033e10"],
 )
 
 rpm(
@@ -12257,28 +12254,19 @@ rpm(
 rpm(
     name = "python3-0__3.9.25-3.el9.aarch64",
     sha256 = "6bcc49ccb04386015b21e0f9a97e4e74fddc3b2aaeb11a4de890662bea8116d0",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/aarch64/os/Packages/python3-3.9.25-3.el9.aarch64.rpm",
-        "https://storage.googleapis.com/builddeps/6bcc49ccb04386015b21e0f9a97e4e74fddc3b2aaeb11a4de890662bea8116d0",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/6bcc49ccb04386015b21e0f9a97e4e74fddc3b2aaeb11a4de890662bea8116d0"],
 )
 
 rpm(
     name = "python3-0__3.9.25-3.el9.s390x",
     sha256 = "8d256069560f02e70dab77d81fb1f8427adcdabc8f55ac1d64e9c8975b0eab6e",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/s390x/os/Packages/python3-3.9.25-3.el9.s390x.rpm",
-        "https://storage.googleapis.com/builddeps/8d256069560f02e70dab77d81fb1f8427adcdabc8f55ac1d64e9c8975b0eab6e",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/8d256069560f02e70dab77d81fb1f8427adcdabc8f55ac1d64e9c8975b0eab6e"],
 )
 
 rpm(
     name = "python3-0__3.9.25-3.el9.x86_64",
     sha256 = "80665300816d833df3f3ed808022c53dda3c3687901bfaf802780bc0b7899842",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/python3-3.9.25-3.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/80665300816d833df3f3ed808022c53dda3c3687901bfaf802780bc0b7899842",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/80665300816d833df3f3ed808022c53dda3c3687901bfaf802780bc0b7899842"],
 )
 
 rpm(
@@ -12581,28 +12569,19 @@ rpm(
 rpm(
     name = "python3-libs-0__3.9.25-3.el9.aarch64",
     sha256 = "a7382c2bf7a19df0250ca2f28a7e25a294a19b42e54a5a63c5c499b8c6c6c685",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/aarch64/os/Packages/python3-libs-3.9.25-3.el9.aarch64.rpm",
-        "https://storage.googleapis.com/builddeps/a7382c2bf7a19df0250ca2f28a7e25a294a19b42e54a5a63c5c499b8c6c6c685",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/a7382c2bf7a19df0250ca2f28a7e25a294a19b42e54a5a63c5c499b8c6c6c685"],
 )
 
 rpm(
     name = "python3-libs-0__3.9.25-3.el9.s390x",
     sha256 = "48ddc59124e89c00be67d752f6d2c4f6e65c8681a454bc69b39392f569fe8518",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/s390x/os/Packages/python3-libs-3.9.25-3.el9.s390x.rpm",
-        "https://storage.googleapis.com/builddeps/48ddc59124e89c00be67d752f6d2c4f6e65c8681a454bc69b39392f569fe8518",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/48ddc59124e89c00be67d752f6d2c4f6e65c8681a454bc69b39392f569fe8518"],
 )
 
 rpm(
     name = "python3-libs-0__3.9.25-3.el9.x86_64",
     sha256 = "8929e0c6a72abb2f4890897b80ad9ad28c2cab6c7aeae8b145400c0f21443ace",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/python3-libs-3.9.25-3.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/8929e0c6a72abb2f4890897b80ad9ad28c2cab6c7aeae8b145400c0f21443ace",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/8929e0c6a72abb2f4890897b80ad9ad28c2cab6c7aeae8b145400c0f21443ace"],
 )
 
 rpm(

@@ -4457,10 +4457,7 @@ rpm(
 rpm(
     name = "iproute-0__6.11.0-1.el9.x86_64",
     sha256 = "3780635befbf4a3c3b8a1a52e6b9eb666b64574189be3b9b13624355dae4a8a8",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/iproute-6.11.0-1.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/3780635befbf4a3c3b8a1a52e6b9eb666b64574189be3b9b13624355dae4a8a8",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/3780635befbf4a3c3b8a1a52e6b9eb666b64574189be3b9b13624355dae4a8a8"],
 )
 
 rpm(
@@ -4520,10 +4517,7 @@ rpm(
 rpm(
     name = "iproute-tc-0__6.11.0-1.el9.x86_64",
     sha256 = "0dd645d098e02a1ebc31cbddc8d1cd6f36a3bd92190bb496b2cfc1e9849958ed",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/iproute-tc-6.11.0-1.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/0dd645d098e02a1ebc31cbddc8d1cd6f36a3bd92190bb496b2cfc1e9849958ed",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/0dd645d098e02a1ebc31cbddc8d1cd6f36a3bd92190bb496b2cfc1e9849958ed"],
 )
 
 rpm(
@@ -11384,28 +11378,19 @@ rpm(
 rpm(
     name = "passt-0__0__caret__20250512.g8ec1341-2.el9.aarch64",
     sha256 = "b25fd3d6395c66279b57f2c6cafa51d487b40cf7b3caa16915c7e702c5495679",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/AppStream/aarch64/os/Packages/passt-0%5E20250512.g8ec1341-2.el9.aarch64.rpm",
-        "https://storage.googleapis.com/builddeps/b25fd3d6395c66279b57f2c6cafa51d487b40cf7b3caa16915c7e702c5495679",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/b25fd3d6395c66279b57f2c6cafa51d487b40cf7b3caa16915c7e702c5495679"],
 )
 
 rpm(
     name = "passt-0__0__caret__20250512.g8ec1341-2.el9.s390x",
     sha256 = "ee4e4896389277f09db8e3a112e83e83be80d1401b43a9993137c12c004bdafc",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/AppStream/s390x/os/Packages/passt-0%5E20250512.g8ec1341-2.el9.s390x.rpm",
-        "https://storage.googleapis.com/builddeps/ee4e4896389277f09db8e3a112e83e83be80d1401b43a9993137c12c004bdafc",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/ee4e4896389277f09db8e3a112e83e83be80d1401b43a9993137c12c004bdafc"],
 )
 
 rpm(
     name = "passt-0__0__caret__20250512.g8ec1341-2.el9.x86_64",
     sha256 = "27818a1904c1d1e39890abe239ea156a29c3e548e83941d7696e0cd3113abfdd",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/passt-0%5E20250512.g8ec1341-2.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/27818a1904c1d1e39890abe239ea156a29c3e548e83941d7696e0cd3113abfdd",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/27818a1904c1d1e39890abe239ea156a29c3e548e83941d7696e0cd3113abfdd"],
 )
 
 rpm(

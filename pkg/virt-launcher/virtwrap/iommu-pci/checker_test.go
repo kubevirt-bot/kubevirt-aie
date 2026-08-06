@@ -20,6 +20,7 @@
 package iommu_pci_test
 
 import (
+	"fmt"
 	"runtime"
 
 	. "github.com/onsi/ginkgo/v2"
@@ -419,6 +420,74 @@ var _ = Describe("IOMMU PCI Checker", func() {
 				isPowerOf2 := finalSize&(finalSize-1) == 0
 				Expect(isPowerOf2).To(BeTrue())
 			})
+		})
+	})
+
+	Describe("GetOrProbeDeviceCapabilities", func() {
+		var iommu *iommupci.IommuPCI
+		var callCount int
+
+		BeforeEach(func() {
+			callCount = 0
+			iommu = &iommupci.IommuPCI{}
+		})
+
+		AfterEach(func() {
+			iommupci.ParseConfigHybridFn = nil
+		})
+
+		It("should probe the device on the first call", func() {
+			iommupci.ParseConfigHybridFn = func(_ string) (atsSupported, atsEnabled, pasidSupported bool, ssidSize, oasBits int, err error) {
+				callCount++
+				return true, true, true, 20, 48, nil
+			}
+
+			bdf, err := iommu.GetOrProbeDeviceCapabilities("0000:3b:00.0")
+			Expect(err).NotTo(HaveOccurred())
+			Expect(bdf).NotTo(BeNil())
+			Expect(bdf.ATSSupported).To(BeTrue())
+			Expect(callCount).To(Equal(1))
+		})
+
+		It("should return the cached result without re-probing on subsequent calls", func() {
+			iommupci.ParseConfigHybridFn = func(_ string) (atsSupported, atsEnabled, pasidSupported bool, ssidSize, oasBits int, err error) {
+				callCount++
+				return true, true, true, 20, 48, nil
+			}
+
+			bdf1, err := iommu.GetOrProbeDeviceCapabilities("0000:3b:00.0")
+			Expect(err).NotTo(HaveOccurred())
+
+			bdf2, err := iommu.GetOrProbeDeviceCapabilities("0000:3b:00.0")
+			Expect(err).NotTo(HaveOccurred())
+
+			Expect(callCount).To(Equal(1), "probe should fire only once per address")
+			Expect(bdf1).To(BeIdenticalTo(bdf2), "should return the same cached pointer")
+		})
+
+		It("should probe each distinct PCI address independently", func() {
+			iommupci.ParseConfigHybridFn = func(_ string) (atsSupported, atsEnabled, pasidSupported bool, ssidSize, oasBits int, err error) {
+				callCount++
+				return true, false, true, 20, 48, nil
+			}
+
+			_, err := iommu.GetOrProbeDeviceCapabilities("0000:3b:00.0")
+			Expect(err).NotTo(HaveOccurred())
+
+			_, err = iommu.GetOrProbeDeviceCapabilities("0000:3c:00.0")
+			Expect(err).NotTo(HaveOccurred())
+
+			Expect(callCount).To(Equal(2), "each distinct address should be probed once")
+		})
+
+		It("should return an error when the probe fails and no cached result exists", func() {
+			iommupci.ParseConfigHybridFn = func(_ string) (atsSupported, atsEnabled, pasidSupported bool, ssidSize, oasBits int, err error) {
+				return false, false, false, 0, 0, fmt.Errorf("EINVAL")
+			}
+
+			bdf, err := iommu.GetOrProbeDeviceCapabilities("0000:3b:00.0")
+			Expect(err).To(HaveOccurred())
+			Expect(bdf).To(BeNil())
 		})
 	})
 

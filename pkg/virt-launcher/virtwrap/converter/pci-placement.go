@@ -234,7 +234,13 @@ func newExpanderBusAssigner(domainSpec *api.DomainSpec, iommupci *iommupci.Iommu
 // PlacePCIDevicesWithNUMAAlignment places PCI devices in the domainSpec with
 // NUMA alignment using PCIe expander buses. It modifies the domainSpec in place
 // or leaves it unchanged in case of an error.
+//
+// PCIHoleSize is reset to zero on each call so that accumulation across
+// SyncVMI reconcile cycles does not inflate the guest PCI hole.
 func PlacePCIDevicesWithNUMAAlignment(domainSpec *api.DomainSpec, iommupci *iommupci.IommuPCI) error {
+	if iommupci != nil {
+		iommupci.PCIHoleSize = 0
+	}
 	assigner := newExpanderBusAssigner(domainSpec, iommupci)
 	return assigner.PlaceNumaAlignedDevices()
 }
@@ -363,8 +369,12 @@ func (a *expanderBusAssigner) placeDevice(topology *numaAwareTopology, device *a
 	// If this device requires IOMMU configuration (marked with "tofill" NodeSet),
 	// create an SMMUv3 IOMMU device for the topology
 	if device.ACPI != nil && device.ACPI.NodeSet == "tofill" {
-		// Parse PCI device capabilities (ATS, PASID) from the device configuration
-		bdf, err := iommupci.NewBDFDevice(sourceAddress).ParseConfigHybrid()
+		// Retrieve IOMMU capabilities from the per-device cache. The cache is
+		// populated on the first successful probe (before the domain is created).
+		// On subsequent SyncVMI reconcile calls the cached result is returned
+		// without re-issuing VFIO_DEVICE_BIND_IOMMUFD, which would fail with
+		// EINVAL once libvirt holds the device in an active IOMMU domain.
+		bdf, err := a.iommuPCI.GetOrProbeDeviceCapabilities(sourceAddress)
 		if err != nil {
 			return fmt.Errorf("failed to parse IOMMU capabilities for %s: %w", sourceAddress, err)
 		}

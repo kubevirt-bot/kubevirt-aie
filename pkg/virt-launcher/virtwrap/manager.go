@@ -217,6 +217,11 @@ type LibvirtDomainManager struct {
 	// via SCM_RIGHTS. A value of -1 means no IOMMUFD FD is available.
 	// See: https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainFDAssociate
 	iommuFD int
+	// iommuPCI is initialised once (before the first domain creation) and reused
+	// across SyncVMI reconcile calls. Its deviceCapabilities map caches per-device
+	// IOMMU capability probes so that VFIO_DEVICE_BIND_IOMMUFD is not re-issued
+	// after libvirt has claimed the device.
+	iommuPCI *iommupci.IommuPCI
 }
 
 type pausedVMIs struct {
@@ -1139,7 +1144,15 @@ func (l *LibvirtDomainManager) generateConverterContext(vmi *v1.VirtualMachineIn
 
 		// We need the pre-configured FD for iommufd usage.
 		if l.iommuFD >= 0 {
-			c.IommuPCI = iommupci.NewIommuPCI(runtime.GOARCH)
+			// Initialise IommuPCI once and reuse it across SyncVMI reconcile
+			// calls. The embedded deviceCapabilities cache ensures that
+			// VFIO_DEVICE_BIND_IOMMUFD is only issued before the domain is
+			// created; subsequent reconciles use the cached probe result and
+			// do not conflict with libvirt's ownership of the device.
+			if l.iommuPCI == nil {
+				l.iommuPCI = iommupci.NewIommuPCI(runtime.GOARCH)
+			}
+			c.IommuPCI = l.iommuPCI
 		} else {
 			c.IommuPCI = &iommupci.IommuPCI{
 				IommufdEnabled: pointer.P(false),

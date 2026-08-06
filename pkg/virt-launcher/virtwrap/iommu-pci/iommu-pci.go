@@ -68,8 +68,14 @@ type IommuPCI struct {
 	IommufdEnabled *bool
 	// SMMUEnabled indicates whether SMMUv3 is available on the system
 	SMMUEnabled bool
-	// PCIHoleSize is the total size needed for the 64-bit PCI hole in KiB
+	// PCIHoleSize is the total size needed for the 64-bit PCI hole in KiB.
+	// Reset to zero at the start of each PlacePCIDevicesWithNUMAAlignment call.
 	PCIHoleSize uint64
+	// deviceCapabilities caches per-device IOMMU capability probes keyed by PCI
+	// address (e.g. "0008:01:00.0"). Populated on first successful probe before
+	// the domain is created; reused on subsequent SyncVMI reconcile calls when
+	// the device is already bound to libvirt's IOMMUFD context.
+	deviceCapabilities map[string]*BDF
 }
 
 // BDF represents a single PCI device identified by Bus:Device.Function
@@ -181,6 +187,30 @@ func (bdf *BDF) ParseConfigHybrid() (*BDF, error) {
 	bdf.PASIDSupported = pasidSupported
 	bdf.SSIDSize = ssidSize
 	bdf.OASBits = oasBits
+	return bdf, nil
+}
+
+// GetOrProbeDeviceCapabilities returns the cached IOMMU capabilities for the
+// given PCI address, probing the device on the first call. Subsequent calls
+// return the cached result without issuing any IOMMUFD ioctls, avoiding
+// conflicts with libvirt's ownership of the device after domain creation.
+//
+// The cache is safe for the lifetime of the VM because PCI hot-(un)plug is not
+// supported; the set of passthrough devices is fixed at domain creation time.
+//
+// Returns an error if the probe fails and no cached result is available.
+func (i *IommuPCI) GetOrProbeDeviceCapabilities(address string) (*BDF, error) {
+	if i.deviceCapabilities == nil {
+		i.deviceCapabilities = make(map[string]*BDF)
+	}
+	if bdf, ok := i.deviceCapabilities[address]; ok {
+		return bdf, nil
+	}
+	bdf, err := NewBDFDevice(address).ParseConfigHybrid()
+	if err != nil {
+		return nil, err
+	}
+	i.deviceCapabilities[address] = bdf
 	return bdf, nil
 }
 

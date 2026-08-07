@@ -1157,6 +1157,11 @@ func Convert_v1_VirtualMachineInstance_To_api_Domain(vmi *v1.VirtualMachineInsta
 				if c.Architecture.SupportPCIePlacement() {
 					err := PlacePCIDevicesWithNUMAAlignment(&domain.Spec, c.IommuPCI)
 					if err != nil {
+						// When IOMMUFD is enabled the SMMUv3 device is required for
+						// correct GPU passthrough — silent fallback is not acceptable.
+						if c.IommuPCI != nil && c.IommuPCI.IommufdEnabled != nil && *c.IommuPCI.IommufdEnabled {
+							return fmt.Errorf("failed to create PCIe topology with NUMA alignment: %w", err)
+						}
 						log.Log.Reason(err).Warningf("Failed to process PCIe NUMA-aware topology, falling back to default placement")
 					} else {
 						iommu.HandleIOMMU(&domain.Spec, c.IommuPCI)

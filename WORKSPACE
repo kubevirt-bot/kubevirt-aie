@@ -2966,10 +2966,7 @@ rpm(
 rpm(
     name = "fips-provider-next-0__1.2.0-3.el10.x86_64",
     sha256 = "d1314bd57fd4e4bb2030519cd79ab562f8ce64866d51827cd4e0f73c190a6c9c",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/AppStream/x86_64/os/Packages/fips-provider-next-1.2.0-3.el10.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/d1314bd57fd4e4bb2030519cd79ab562f8ce64866d51827cd4e0f73c190a6c9c",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/d1314bd57fd4e4bb2030519cd79ab562f8ce64866d51827cd4e0f73c190a6c9c"],
 )
 
 rpm(
@@ -5288,10 +5285,7 @@ rpm(
 rpm(
     name = "libarchive-0__3.5.3-4.el9.x86_64",
     sha256 = "4c53176eafd8c449aef704b8fbc2d5401bb7d2ea0a67961956f318f2e9a2c7a4",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/libarchive-3.5.3-4.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/4c53176eafd8c449aef704b8fbc2d5401bb7d2ea0a67961956f318f2e9a2c7a4",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/4c53176eafd8c449aef704b8fbc2d5401bb7d2ea0a67961956f318f2e9a2c7a4"],
 )
 
 rpm(
@@ -6629,10 +6623,7 @@ rpm(
 rpm(
     name = "libibverbs-0__54.0-1.el9.x86_64",
     sha256 = "b57effbc14e02e546a6e94bf8247f2dbfe24b5da0b95691ba3979b3652002b77",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/libibverbs-54.0-1.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/b57effbc14e02e546a6e94bf8247f2dbfe24b5da0b95691ba3979b3652002b77",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/b57effbc14e02e546a6e94bf8247f2dbfe24b5da0b95691ba3979b3652002b77"],
 )
 
 rpm(
@@ -7769,10 +7760,7 @@ rpm(
 rpm(
     name = "librdmacm-0__54.0-1.el9.x86_64",
     sha256 = "82d2d2eecace0a17f97e44e42d766a0ef5cf67f5c42e139c58e18406dfc38f4d",
-    urls = [
-        "http://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/librdmacm-54.0-1.el9.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/82d2d2eecace0a17f97e44e42d766a0ef5cf67f5c42e139c58e18406dfc38f4d",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/82d2d2eecace0a17f97e44e42d766a0ef5cf67f5c42e139c58e18406dfc38f4d"],
 )
 
 rpm(
@@ -10934,28 +10922,19 @@ rpm(
 rpm(
     name = "openssl-fips-provider-1__3.5.5-1.el10.aarch64",
     sha256 = "8508a817efb181727d4cbed2ef81ddbde1f1da487709f0a6aaaea4ac265acea2",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/aarch64/os/Packages/openssl-fips-provider-3.5.5-1.el10.aarch64.rpm",
-        "https://storage.googleapis.com/builddeps/8508a817efb181727d4cbed2ef81ddbde1f1da487709f0a6aaaea4ac265acea2",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/8508a817efb181727d4cbed2ef81ddbde1f1da487709f0a6aaaea4ac265acea2"],
 )
 
 rpm(
     name = "openssl-fips-provider-1__3.5.5-1.el10.s390x",
     sha256 = "d9844964d1c85617b43d0a9a9cc92a98d50008925abfc6766edecda075085047",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/s390x/os/Packages/openssl-fips-provider-3.5.5-1.el10.s390x.rpm",
-        "https://storage.googleapis.com/builddeps/d9844964d1c85617b43d0a9a9cc92a98d50008925abfc6766edecda075085047",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/d9844964d1c85617b43d0a9a9cc92a98d50008925abfc6766edecda075085047"],
 )
 
 rpm(
     name = "openssl-fips-provider-1__3.5.5-1.el10.x86_64",
     sha256 = "8cd0358b2f324315431e075aa4f96aba00f2be2fbea15929808d77b38c450b7b",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/x86_64/os/Packages/openssl-fips-provider-3.5.5-1.el10.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/8cd0358b2f324315431e075aa4f96aba00f2be2fbea15929808d77b38c450b7b",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/8cd0358b2f324315431e075aa4f96aba00f2be2fbea15929808d77b38c450b7b"],
 )
 
 rpm(
@@ -10994,28 +10973,19 @@ rpm(
 rpm(
     name = "openssl-libs-1__3.5.5-1.el10.aarch64",
     sha256 = "b57aea518dd32913ada2d53def2aa2b67ddd97f9826c95392a9ff8942c0bc992",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/aarch64/os/Packages/openssl-libs-3.5.5-1.el10.aarch64.rpm",
-        "https://storage.googleapis.com/builddeps/b57aea518dd32913ada2d53def2aa2b67ddd97f9826c95392a9ff8942c0bc992",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/b57aea518dd32913ada2d53def2aa2b67ddd97f9826c95392a9ff8942c0bc992"],
 )
 
 rpm(
     name = "openssl-libs-1__3.5.5-1.el10.s390x",
     sha256 = "63346962f9adf622da34b1727f33e5abddbedd9ad47dfea2526f2f28ca0dcd47",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/s390x/os/Packages/openssl-libs-3.5.5-1.el10.s390x.rpm",
-        "https://storage.googleapis.com/builddeps/63346962f9adf622da34b1727f33e5abddbedd9ad47dfea2526f2f28ca0dcd47",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/63346962f9adf622da34b1727f33e5abddbedd9ad47dfea2526f2f28ca0dcd47"],
 )
 
 rpm(
     name = "openssl-libs-1__3.5.5-1.el10.x86_64",
     sha256 = "f398762ae421f1aa605af7e3e8770da8b3fa6fbb0afcf74a2d82945dc4670c39",
-    urls = [
-        "http://mirror.stream.centos.org/10-stream/BaseOS/x86_64/os/Packages/openssl-libs-3.5.5-1.el10.x86_64.rpm",
-        "https://storage.googleapis.com/builddeps/f398762ae421f1aa605af7e3e8770da8b3fa6fbb0afcf74a2d82945dc4670c39",
-    ],
+    urls = ["https://storage.googleapis.com/builddeps/f398762ae421f1aa605af7e3e8770da8b3fa6fbb0afcf74a2d82945dc4670c39"],
 )
 
 rpm(
